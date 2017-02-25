@@ -1,5 +1,3 @@
-require_relative "accessor"
-
 module FactoryLite
   class Instance
     attr_accessor :constructor, :default_attrs

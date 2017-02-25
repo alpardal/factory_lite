@@ -1,9 +1,6 @@
 require "dry-configurable"
 require "forwardable"
 
-require_relative "container"
-require_relative "accessor"
-
 module FactoryLite
   class Factory
     extend ::Dry::Configurable

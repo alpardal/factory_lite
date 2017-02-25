@@ -1,5 +1,3 @@
-require_relative "instance"
-
 module FactoryLite
   class Container
     attr_reader :config
