@@ -19,7 +19,7 @@ describe FactoryLite::Factory do
 
   before(:each) do
     # restore default:
-    SUT.config.model_accessor = :id
+    SUT.config.model_accessor = :none
   end
 
   context "creating models" do
@@ -40,7 +40,7 @@ describe FactoryLite::Factory do
     let(:post) { Post.new("A Post", "Post body") }
 
     it "accesses the model directly by default" do
-      # default: SUT.config.model_accessor = :id
+      # default: SUT.config.model_accessor = :none
       expect(SUT.create(:post)).to eq(post)
     end
 
@@ -81,7 +81,7 @@ describe FactoryLite::Factory do
       expected = post
       SUT.config.model_accessor = :trailblazer2
       SUT.extend(:post, as: :inline_post) do |f|
-        f.model_accessor = :id
+        f.model_accessor = :none
         f.constructor = ->(*) { expected }
       end
       expect(SUT.create(:inline_post)).to eq(post)
@@ -91,7 +91,7 @@ describe FactoryLite::Factory do
   context "setting the attrs key" do
     it "uses the factory name by default" do
       SUT.extend(:post, as: :keyless_post) do |f|
-        f.model_accessor = :id
+        f.model_accessor = :none
         f.attrs_key = nil
         f.constructor = lambda do |attrs|
           Post.new(attrs[:title], attrs[:body])

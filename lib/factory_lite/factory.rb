@@ -5,7 +5,7 @@ module FactoryLite
   class Factory
     extend ::Dry::Configurable
 
-    setting(:model_accessor, :id)
+    setting(:model_accessor, :none)
     setting :attrs_key, -> { :factory_name }
 
     class << self

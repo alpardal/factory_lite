@@ -11,7 +11,7 @@ module FactoryLite
     end
 
     DEFAULT_ACCESSORS = {
-      id: ->(model) { model },
+      none: ->(model) { model },
       trailblazer2: ->(result) { result["model"] },
       trailblazer1: ->(operation) { operation.model }
     }.freeze
